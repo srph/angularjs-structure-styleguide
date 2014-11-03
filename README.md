@@ -17,16 +17,23 @@ A personal style on structuring your AngularJS. Personal opinion, LIFT principle
 
 This style guide has been largely influenced by [John Papa](https://github.com/johnpapa/)'s [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle) (which also includes a lecture with regards to an AngularJS app structure).
 
-Overall, excluding other files, this is how we should be structuring our application. I will be breaking this to simple bits with extra explanation on "why".
+I will be breaking this to simple bits with extra explanation on "why".
 
-Although, before that, I'd like to specify my reason upon this creation:First things first, with an "infrastructure" style guide, you are trying to solve a developer problem. Like said:
+Although, before that, I'd like to specify my reason upon this creation: With an "infrastructure" style guide, you should solve a scalability and maintainability problem.
+
+Like said:
 
 > Cardinally and fundamentally, reading code is harder than writing code.
 
 Upon solving this problem, you are giving yourself these favors:
 
-1. **Developing becomes more fun**. No matter how "good" an app and code is documented, it has to be instinctively readable and exciting. Your structure should immediately reflect the purpose of the app and how the gears turn.
-2. **Adding features become awesome tasks**. Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. Your app makes its developers feel that it is bloated and heavy; you get confused every now and then. This becomes a very big problem, especially when you are working with a team, no matter what the size. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
+[1] **Developing the app, ulteriorly, becomes more fun**.
+
+No matter how "good" an app and code is documented, it has to be instinctively readable and exciting. Your structure should immediately reflect the purpose of the app and how the gears turn.
+
+[2] **Adding features become awesome tasks**.
+
+Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. Your app makes its developers feel that it is bloated and heavy; you get confused every now and then. This becomes a very big problem, especially when you are working with a team, no matter what the size. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
 
 ## 2. App Overview
 
@@ -43,31 +50,30 @@ Upon solving this problem, you are giving yourself these favors:
 
 ```
 /app
-	/user
-		/partials
-		/common
-			/directives
-			/controllers
-			/services
-	/user-create
-	/user-edit
-	/newsCategory
-	/newsCategory-create
-	/newsCategory-edit
-	app.module.js
-	app.bootstrap.js
+  /user
+    /partials
+    /directives
+    /controllers
+    /services
+  /user-create
+  /user-edit
+  /newsCategory
+  /newsCategory-create
+  /newsCategory-edit
+  app.module.js
+  app.bootstrap.js
 /app.components
 /app.core
-	/controllers
-	/resources
-	/services
-	/utils
-	app.core.js
-	app.controllers.js
-	app.directives.js
-	app.resources.js
-	app.services.js
-	app.utils.js`
+  /controllers
+  /resources
+  /services
+  /utils
+  app.core.js
+  app.controllers.js
+  app.directives.js
+  app.resources.js
+  app.services.js
+  app.utils.js`
 /less|sass
 ```
 
@@ -75,15 +81,111 @@ Upon solving this problem, you are giving yourself these favors:
 
 ```
 /app
-/app.core
+  /user
+    user.state.js
+    user.controller.js
+    user-picture.tpl.html
+    user.html
 /...
 ```
 
-The ```app``` folder contains the main 
+I will use the word ```state``` to refer to each page|whatsoever, and ```route``` to the path (URL) of the state.
+
+The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services which will be used specifically for the page.
+
+**Q: What if I started having more than 1 partial, controllers, and other things?**
+If the state starts to use more than 1 partial, this is when you start grouping them to a folder. If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
+
+```
+/app.core
+  /user
+    /partials
+      user-picture.tpl.html
+      user-swag.tpl.html
+    /webcam.directive
+    /uploaderThing.directive
+    user.state.js
+    user.controller.js
+    user.html
+/...
+```
+
+**Q: What if I have nested states?**
+
+As much as possible, I avoid nested directories of states. For example, we have this state hierarchy:
+
+```
+- main
+  - user
+    - user.create
+    - user.edit
+    - user.delete
+    - profile
+      - profile.create
+      - profile.edit
+      - profile.delete
+```
+
+This is how we structure our directory. Nests are easily read while adhering to the LIFT principle.
+
+```
+/app
+  /news
+  /news.create
+  /news.edit
+  /news.delete
+  /news-category
+  /news-category.edit
+```
+
+Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url(news/category) that's simply nested under a different state.
+
+To elaborate, here's an example. We have a news CRUD [url: ```/news/*```] and a news category CRUD [url: ```/news/categories/*```]. Then, we expected to have these states:
+
+```
+news (abstract state)
+news.index
+news.create
+news.edit
+
+news-category (abstract state)
+news-category.index
+news-category.create
+news-category.edit
+```
+
+This is how we create our directory:
+
+```
+/app
+  /news
+  /news.index
+  /news.edit
+  /news-category.index
+  /news-category.create
+  /news-category.edit
+```
+
+**Q: What if my state is composed of two words?**
+
+Use **StudlyCase**; do not separate it with a ```-```(dash).
+
+```
+/user
+/user-awesomeName
+/user-anotherModule
+/user-maybeAnotherModule
+```
 
 ## 4. App Core
 
-The ```app.core``` folder contains all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers``` 
+```
+/app.core
+  /controllers
+  /services
+```
+
+The ```app.core``` folder contains all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```.
 
 ## 5. App.Components
 
