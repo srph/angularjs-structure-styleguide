@@ -55,11 +55,11 @@ Normally, as you progress through basic and essential features, regardless of it
     /directives
     /controllers
     /services
-  /user-create
-  /user-edit
+  /user.create
+  /user.edit
   /newsCategory
-  /newsCategory-create
-  /newsCategory-edit
+  /newsCategory.create
+  /newsCategory.edit
   app.module.js
   app.bootstrap.js
 /app.components
