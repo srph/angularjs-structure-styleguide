@@ -5,7 +5,7 @@ A personal style on structuring your AngularJS. Personal opinion, LIFT principle
 
 ## Table of Contents
 
-1. Context
+1. [Context](#1-context)
 2. [App Overview](#2-app-overview)
 3. [App](#3-app)
 4. [App Core](#4-app-core)
