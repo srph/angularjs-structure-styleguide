@@ -33,7 +33,7 @@ No matter how "good" an app and code is documented, it has to be instinctively r
 
 [2] **Adding features become awesome tasks**.
 
-Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. Your app makes its developers feel that it is bloated and heavy; you get confused every now and then. This becomes a very big problem, especially when you are working with a team, no matter what the size. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
+Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. An app makes its developers feel uneasy--that it is bloated and heavy; and it confuses developers every now and then. This becomes a very big problem, especially when an app is under a large team. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
 
 ## 2. App Overview
 
@@ -91,9 +91,10 @@ Normally, as you progress through basic and essential features, regardless of it
 
 I will use the word ```state``` to refer to each page|whatsoever, and ```route``` to the path (URL) of the state.
 
-The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services which will be used specifically for the page.
+The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services to be **specifically** used for itself or child states.
 
 **Q: What if I started having more than 1 partial, controllers, and other things?**
+
 If the state starts to use more than 1 partial, this is when you start grouping them to a folder. If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
 
 ```
@@ -112,7 +113,7 @@ If the state starts to use more than 1 partial, this is when you start grouping 
 
 **Q: What if I have nested states?**
 
-As much as possible, I avoid nested directories of states. For example, we have this state hierarchy:
+As much as possible, try to avoid nested directories of states. For example, we have this state hierarchy:
 
 ```
 - main
@@ -126,7 +127,7 @@ As much as possible, I avoid nested directories of states. For example, we have 
       - profile.delete
 ```
 
-This is how we structure our directory. Nests are easily read while adhering to the LIFT principle.
+This is how we structure our directory. Nested states can be easily found and understood while adhering to the LIFT principle.
 
 ```
 /app
@@ -138,9 +139,9 @@ This is how we structure our directory. Nests are easily read while adhering to 
   /news-category.edit
 ```
 
-Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url(news/category) that's simply nested under a different state.
+Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state.
 
-To elaborate, here's an example. We have a news CRUD [url: ```/news/*```] and a news category CRUD [url: ```/news/categories/*```]. Then, we expected to have these states:
+To elaborate, here's an example: an app consists of a news CRUD [url: ```/news/*```] and a news category CRUD [url: ```/news/categories/*```]. We expect it to have these states:
 
 ```
 news (abstract state)
@@ -168,7 +169,7 @@ This is how we create our directory:
 
 **Q: What if my state is composed of two words?**
 
-Use **StudlyCase**; do not separate it with a ```-```(dash).
+Use **camelCase**; do not separate it with a ```-```(dash).
 
 ```
 /user
@@ -214,6 +215,10 @@ The ```app.components``` folder contains mostly general-solution|non-feature-spe
 ## 6. Overall
 
 ## 7. Recommendation & Tips
+
+If a state or a directive consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.
+
+Do not use ```-```(dash)
 
 ## Contribution
 
