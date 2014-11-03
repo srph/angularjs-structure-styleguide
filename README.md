@@ -1,7 +1,16 @@
 angularjs-structure-styleguide
 ==============================
 
-A personal style on structuring your AngularJS. Personal opinion, LIFT principle.
+Personal, opinionated style on structuring your AngularJS, adhering to [John Papa](https://github.com/johnpapa)'s [LIFT principle](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle).
+
+- ```L```ocating our code is easy
+- ```I```dentify code at a glance
+- ```F```lat structure as long as we can
+- ```T```ry to stay DRY (Don’t Repeat Yourself) or T-DRY
+
+## Credits
+
+This style guide has been largely influenced by [John Papa](https://github.com/johnpapa/)'s [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle) (which also includes a lecture with regards to an AngularJS app structure).
 
 ## Table of Contents
 
@@ -14,8 +23,6 @@ A personal style on structuring your AngularJS. Personal opinion, LIFT principle
 7. [Recommendation & Tips](#7-recommendation--tips)
 
 ## 1. Context
-
-This style guide has been largely influenced by [John Papa](https://github.com/johnpapa/)'s [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle) (which also includes a lecture with regards to an AngularJS app structure).
 
 I will be breaking this to simple bits with extra explanation on "why".
 
