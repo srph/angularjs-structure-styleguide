@@ -67,14 +67,14 @@ Normally, as you progress through basic and essential features, regardless of it
   /newsCategory
   /newsCategory.create
   /newsCategory.edit
-  app.module.js
-  app.bootstrap.js
 /app.components
 /app.core
   /controllers
   /resources
   /services
   /utils
+  app.module.js
+  app.bootstrap.js
   app.core.js
   app.controllers.js
   app.directives.js
@@ -193,9 +193,17 @@ Use **camelCase**; do not separate it with a ```-```(dash).
 /app.core
   /controllers
   /services
+  app.module.js
+  app.bootstrap.js
+  app.core.js
+  app.controllers.js
+  app.directives.js
+  app.resources.js
+  app.services.js
+  app.utils.js`
 ```
 
-The ```app.core``` folder contains all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
+The ```app.core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
 
 **Q: Why do we have ```resources```?**
 These come in handy when you frequently request an API for data. Use ```resources``` to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, use services.
