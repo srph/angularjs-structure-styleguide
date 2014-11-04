@@ -3,14 +3,12 @@ angularjs-structure-styleguide
 
 Personal, opinionated style on structuring your AngularJS, adhering to [John Papa](https://github.com/johnpapa)'s [LIFT principle](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle).
 
+**What is LIFT?**
+
 - ```L```ocating our code is easy
 - ```I```dentify code at a glance
 - ```F```lat structure as long as we can
 - ```T```ry to stay DRY (Don’t Repeat Yourself) or T-DRY
-
-## Credits
-
-This style guide has been largely influenced by [John Papa](https://github.com/johnpapa/)'s [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle) (which also includes a lecture with regards to an AngularJS app structure).
 
 ## Table of Contents
 
@@ -41,6 +39,8 @@ No matter how "good" an app and code is documented, it has to be instinctively r
 [2] **Adding features become awesome tasks**.
 
 Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. An app makes its developers feel uneasy--that it is bloated and heavy; and it confuses developers every now and then. This becomes a very big problem, especially when an app is under a large team. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
+
+[Back to top](#table-of-contents)
 
 ## 2. App Overview
 
@@ -83,6 +83,7 @@ Normally, as you progress through basic and essential features, regardless of it
   app.utils.js`
 /less|sass
 ```
+[Back to top](#table-of-contents)
 
 ## 3. App
 
@@ -184,6 +185,7 @@ Use **camelCase**; do not separate it with a ```-```(dash).
 /user-anotherModule
 /user-maybeAnotherModule
 ```
+[Back to top](#table-of-contents)
 
 ## 4. App Core
 
@@ -193,7 +195,10 @@ Use **camelCase**; do not separate it with a ```-```(dash).
   /services
 ```
 
-The ```app.core``` folder contains all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```.
+The ```app.core``` folder contains all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
+
+**Q: Why do we have ```resources```?**
+These come in handy when you frequently request an API for data. Use ```resources``` to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, use services.
 
 ## 5. App.Components
 
@@ -219,14 +224,24 @@ The ```app.components``` folder contains mostly general-solution|non-feature-spe
 2. Directives are way too large to be nested inside the ```app.core``` folder, and this easily goes against the LIFT principle.
 2. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
 
+[Back to top](#table-of-contents)
+
 ## 6. Overall
+
+[Back to top](#table-of-contents)
 
 ## 7. Recommendation & Tips
 
 If a state or a directive consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.
 
-Do not use ```-```(dash)
+Do not use ```-```(dash) to signify that a name consists of two words. Use it to signify a nest or hierarchy.
+
+[Back to top](#table-of-contents)
+
+## Credits
+
+This style guide has been largely influenced by [John Papa](https://github.com/johnpapa/)'s [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle) (which also includes a lecture with regards to an AngularJS app structure).
 
 ## Contribution
 
-For contribution guidelines, please see this.
+I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests.
