@@ -15,28 +15,22 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 1. [Context](#1-context)
 2. [App Overview](#2-app-overview)
 3. [App](#3-app)
-4. [App Core](#4-app-core)
-5. [App Components](#5-app-components)
+4. [Core](#4-core)
+5. [Components](#5-components)
 6. [Overall](#overall)
 7. [Recommendation & Tips](#7-recommendation--tips)
 
 ## 1. Context
 
-I will be breaking this to simple bits with extra explanation on "why".
-
-Although, before that, I'd like to specify my reason upon this creation: With an "infrastructure" style guide, you should solve a scalability and maintainability problem.
-
-Like said:
+An "infrastructure" helps you solve not only a scalability problem, but also a maintainability problem. This guide was created to share a newbie's solution with his struggles from his infrastructure, rooting from impractical guides shared in the internets, and inexperience. Like said:
 
 > Cardinally and fundamentally, reading code is harder than writing code.
 
-Upon solving this problem, you are giving yourself these favors:
-
-[1] **Developing the app, ulteriorly, becomes more fun**.
+### Developing the app, ulteriorly, becomes more fun.
 
 No matter how "good" an app and code is documented, it has to be instinctively readable and exciting. Your structure should immediately reflect the purpose of the app and how the gears turn.
 
-[2] **Adding features become awesome tasks**.
+### Adding features become awesome tasks.
 
 Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. An app makes its developers feel uneasy--that it is bloated and heavy; and it confuses developers every now and then. This becomes a very big problem, especially when an app is under a large team. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
 
@@ -56,67 +50,65 @@ Normally, as you progress through basic and essential features, regardless of it
 ### Extended
 
 ```
-/app
-  /user
-    /partials
-    /directives
-    /controllers
-    /services
-  /user.create
-  /user.edit
-  /newsCategory
-  /newsCategory.create
-  /newsCategory.edit
-/app.components
-/app.core
-  /controllers
-  /resources
-  /services
-  /utils
-  app.module.js
-  app.bootstrap.js
-  app.core.js
-  app.controllers.js
-  app.directives.js
-  app.resources.js
-  app.services.js
-  app.utils.js`
-/less|sass
+├── app
+|  ├── user
+|  |  ├── partials
+|  |  ├── directives
+|  |  ├── controllers
+|  |  ├── services
+|  |  ├── user.create
+|  |  ├── user.edit
+|  |  ├── newsCategory
+|  |  ├── newsCategory.create
+|  |  ├── newsCategory.edit
+├── components
+├── core
+|  ├── controllers
+|  ├── resources
+|  ├── services
+|  ├── utils
+|  ├── app.module.js
+|  ├── app.bootstrap.js
+|  ├── app.core.js
+|  ├── app.controllers.js
+|  ├── app.directives.js
+|  ├── app.resources.js
+|  ├── app.services.js
+|  ├── app.utils.js`
+├── less|sass
 ```
 [Back to top](#table-of-contents)
 
 ## 3. App
 
 ```
-/app
-  /user
-    user.state.js
-    user.controller.js
-    user-picture.tpl.html
-    user.html
+├── app
+|  ├── user
+|  |  ├── user.state.js
+|  |  ├── user.controller.js
+|  |  ├── user-picture.tpl.html
+|  |  ├── user.html
 /...
 ```
 
-I will use the word ```state``` to refer to each page|whatsoever, and ```route``` to the path (URL) of the state.
-
 The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services to be **specifically** used for itself or child states.
 
-**Q: What if I started having more than 1 partial, controllers, and other things?**
+### Q: What if I started having more than 1 partial, controllers, and other things?
 
 If the state starts to use more than 1 partial, this is when you start grouping them to a folder. If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
 
 ```
-/app.core
-  /user
-    /partials
-      user-picture.tpl.html
-      user-swag.tpl.html
-    /webcam.directive
-    /uploaderThing.directive
-    user.state.js
-    user.controller.js
-    user.html
-/...
+├── core
+|  ├── user
+|  ├── partials
+|  |  ├── user-picture.tpl.html
+|  |  ├── user-swag.tpl.html
+|  ├── webcam.directive
+|  ├── uploaderThing.directive
+|  |  ├── user.state.js
+|  |  ├── user.controller.js
+|  |  ├── user.html
+├── ...
 ```
 
 **Q: What if I have nested states?**
@@ -135,16 +127,14 @@ As much as possible, try to avoid nested directories of states. For example, we 
       - profile.delete
 ```
 
-This is how we structure our directory. Nested states can be easily found and understood while adhering to the LIFT principle.
+This is how we structure our directory. Nested states can be easily found and understood while adhering to the **LIFT** principle.
 
 ```
-/app
-  /news
-  /news.create
-  /news.edit
-  /news.delete
-  /news-category
-  /news-category.edit
+├── app
+|  ├── news
+|  ├── news.create
+|  ├── news-category
+|  ├── news-category.edit
 ```
 
 Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state.
@@ -166,13 +156,15 @@ news-category.edit
 This is how we create our directory:
 
 ```
-/app
-  /news
-  /news.index
-  /news.edit
-  /news-category.index
-  /news-category.create
-  /news-category.edit
+├── app
+|  ├── news
+|  ├── news.index
+|  ├── news.create
+|  ├── news.edit
+|  ├── news.category
+|  ├── news-category.index
+|  ├── news-category.create
+|  ├── news-category.edit
 ```
 
 **Q: What if my state is composed of two words?**
@@ -180,57 +172,66 @@ This is how we create our directory:
 Use **camelCase**; do not separate it with a ```-```(dash).
 
 ```
-/user
-/user-awesomeName
-/user-anotherModule
-/user-maybeAnotherModule
+├── user
+├── user-awesomeName
+├── user-anotherModule
+├── user-maybeAnotherModule
+├── user-thatModule
+├── user-thatModule.index
+├── user-thatModule.create
 ```
 [Back to top](#table-of-contents)
 
-## 4. App Core
+## 4. Core
 
 ```
-/app.core
-  /controllers
-  /services
-  app.module.js
-  app.bootstrap.js
-  app.core.js
-  app.controllers.js
-  app.directives.js
-  app.resources.js
-  app.services.js
-  app.utils.js`
+├── core
+|  ├── controllers
+|  ├── resources
+|  ├── utils
+|  ├── filters
+|  ├── services
+|  ├── app.module.js
+|  ├── app.bootstrap.js
+|  ├── app.core.js
+|  ├── app.controllers.js
+|  ├── app.directives.js
+|  ├── app.resources.js
+|  ├── app.services.js
+|  ├── app.utils.js`
 ```
 
-The ```app.core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
+The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
 
-**Q: Why do we have ```resources```?**
+### Q: Why do we have the ```resources``` folder?
 These come in handy when you frequently request an API for data. Use ```resources``` to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, use services.
 
-## 5. App.Components
+## 5. Components
 
 ```
-/...
-/app.components
-  /stickyNavThatDoesThat
-    /stickyNavThatDoesThat.controller.js
-    /stickyNavThatDoesThat.directive.js
-    /stickyNavThatDoesThat.provider.js
-    /stickyNavThatDoesThat.module.js
-  /awesomeProgressBar
-    /awesomeProgressBar.controller.js
-    /awesomeProgressBar.directive.js
-    /awesomeProgressBar.provider.js
-    /awesomeProgressBar.module.js
-  app.components.module.js
+├── components
+|  ├──  /stickyNavThatDoesThat
+|  |  ├── stickyNavThatDoesThat.controller.js
+|  |  ├── stickyNavThatDoesThat.directive.js
+|  |  ├── stickyNavThatDoesThat.provider.js
+|  |  ├── stickyNavThatDoesThat.module.js
+|  ├── awesomeProgressBar
+|  |  ├── awesomeProgressBar.controller.js
+|  |  ├── awesomeProgressBar.directive.js
+|  |  ├── awesomeProgressBar.provider.js
+|  |  ├── awesomeProgressBar.module.js
+|  ├── app.components.module.js
 ```
 
-The ```app.components``` folder contains mostly general-solution|non-feature-specific ```directives```. I had decided to separate directives because 
+The ```components``` folder contains mostly general-solution|non-feature-specific ```directives```.
+
+### Q: Why are the directives separated from other angular modules?
+
+I had decided to separate directives because:
 
 1. Most general-solution directives has its own separate controller and provider.
 2. Directives are way too large to be nested inside the ```app.core``` folder, and this easily goes against the LIFT principle.
-2. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
+3. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
 
 [Back to top](#table-of-contents)
 
@@ -239,6 +240,8 @@ The ```app.components``` folder contains mostly general-solution|non-feature-spe
 [Back to top](#table-of-contents)
 
 ## 7. Recommendation & Tips
+
+### File / directory naming convention
 
 If a state or a directive consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.
 
