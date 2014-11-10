@@ -43,11 +43,11 @@ Normally, as you progress through basic and essential features, regardless of it
 ### First-level simplification
 
 ```
-├── app
-├── components
-├── core
-├── dist
-├── less|sass
+├── app/
+├── components/
+├── core/
+├── dist/
+├── less|sass/
 ```
 
 ### Extended
@@ -78,12 +78,12 @@ Normally, as you progress through basic and essential features, regardless of it
 |  ├── app.resources.js
 |  ├── app.services.js
 |  ├── app.utils.js`
-├── dist
+├── dist/
 |  ├── css
 |  ├── js
 |  ├── images
 |  ├── views
-├── less|sass
+├── less|sass/
 ```
 [Back to top](#table-of-contents)
 
