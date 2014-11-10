@@ -22,6 +22,8 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 ## 1. Context
 
+This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well.
+
 An "infrastructure" helps you solve not only a scalability problem, but also a maintainability problem. This guide was created to share a newbie's solution with his struggles from his infrastructure, rooting from impractical guides shared in the internets, and inexperience. Like said:
 
 > Cardinally and fundamentally, reading code is harder than writing code.
@@ -42,6 +44,7 @@ Normally, as you progress through basic and essential features, regardless of it
 
 ```
 ├── app
+├── dist
 ├── components
 ├── core
 ├── less|sass
