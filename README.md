@@ -48,6 +48,7 @@ Normally, as you progress through basic and essential features, regardless of it
 ├── core/
 ├── dist/
 ├── less|sass/
+├── vendor/
 ```
 
 ### Extended
