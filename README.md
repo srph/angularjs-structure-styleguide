@@ -41,10 +41,10 @@ Normally, as you progress through basic and essential features, regardless of it
 ### First-level simplification
 
 ```
-/app
-/app.components
-/app.core
-/less|sass
+├── app
+├── components
+├── core
+├── less|sass
 ```
 
 ### Extended
