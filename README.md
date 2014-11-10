@@ -50,7 +50,7 @@ Normally, as you progress through basic and essential features, regardless of it
 ### Extended
 
 ```
-├── app
+├── app/
 |  ├── user
 |  |  ├── partials
 |  |  ├── directives
@@ -61,8 +61,8 @@ Normally, as you progress through basic and essential features, regardless of it
 |  |  ├── newsCategory
 |  |  ├── newsCategory.create
 |  |  ├── newsCategory.edit
-├── components
-├── core
+├── components/
+├── core/
 |  ├── controllers
 |  ├── resources
 |  ├── services
@@ -98,13 +98,13 @@ The ```app``` folder contains all the app's states. And each state may contain t
 If the state starts to use more than 1 partial, this is when you start grouping them to a folder. If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
 
 ```
-├── core
-|  ├── user
-|  ├── partials
-|  |  ├── user-picture.tpl.html
-|  |  ├── user-swag.tpl.html
-|  ├── webcam.directive
-|  ├── uploaderThing.directive
+├── core/
+|  ├── user/
+|  |  ├── partials/
+|  |  |  ├── user-picture.tpl.html
+|  |  |  ├── user-swag.tpl.html
+|  |  ├── webcam.directive/
+|  |  ├── uploaderThing.directive/
 |  |  ├── user.state.js
 |  |  ├── user.controller.js
 |  |  ├── user.html
@@ -130,11 +130,11 @@ As much as possible, try to avoid nested directories of states. For example, we 
 This is how we structure our directory. Nested states can be easily found and understood while adhering to the **LIFT** principle.
 
 ```
-├── app
-|  ├── news
-|  ├── news.create
-|  ├── news-category
-|  ├── news-category.edit
+├── app/
+|  ├── news/
+|  ├── news.create/
+|  ├── news-category/
+|  ├── news-category.edit/
 ```
 
 Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state.
@@ -156,15 +156,15 @@ news-category.edit
 This is how we create our directory:
 
 ```
-├── app
-|  ├── news
-|  ├── news.index
-|  ├── news.create
-|  ├── news.edit
-|  ├── news.category
-|  ├── news-category.index
-|  ├── news-category.create
-|  ├── news-category.edit
+├── app/
+|  ├── news/
+|  ├── news.index/
+|  ├── news.create/
+|  ├── news.edit/
+|  ├── news.category/
+|  ├── news-category.index/
+|  ├── news-category.create/
+|  ├── news-category.edit/
 ```
 
 **Q: What if my state is composed of two words?**
@@ -172,25 +172,25 @@ This is how we create our directory:
 Use **camelCase**; do not separate it with a ```-```(dash).
 
 ```
-├── user
-├── user-awesomeName
-├── user-anotherModule
-├── user-maybeAnotherModule
-├── user-thatModule
-├── user-thatModule.index
-├── user-thatModule.create
+├── user/
+├── user-awesomeName/
+├── user-anotherModule/
+├── user-maybeAnotherModule/
+├── user-thatModule/
+├── user-thatModule.index/
+├── user-thatModule.create/
 ```
 [Back to top](#table-of-contents)
 
 ## 4. Core
 
 ```
-├── core
-|  ├── controllers
-|  ├── resources
-|  ├── utils
-|  ├── filters
-|  ├── services
+├── core/
+|  ├── controllers/
+|  ├── resources/
+|  ├── utils/
+|  ├── filters/
+|  ├── services/
 |  ├── app.module.js
 |  ├── app.bootstrap.js
 |  ├── app.core.js
@@ -209,13 +209,13 @@ These come in handy when you frequently request an API for data. Use ```resource
 ## 5. Components
 
 ```
-├── components
+├── components/
 |  ├──  /stickyNavThatDoesThat
 |  |  ├── stickyNavThatDoesThat.controller.js
 |  |  ├── stickyNavThatDoesThat.directive.js
 |  |  ├── stickyNavThatDoesThat.provider.js
 |  |  ├── stickyNavThatDoesThat.module.js
-|  ├── awesomeProgressBar
+|  ├── awesomeProgressBar/
 |  |  ├── awesomeProgressBar.controller.js
 |  |  ├── awesomeProgressBar.directive.js
 |  |  ├── awesomeProgressBar.provider.js
