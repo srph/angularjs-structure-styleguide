@@ -44,9 +44,9 @@ Normally, as you progress through basic and essential features, regardless of it
 
 ```
 ├── app
-├── dist
 ├── components
 ├── core
+├── dist
 ├── less|sass
 ```
 
@@ -78,6 +78,11 @@ Normally, as you progress through basic and essential features, regardless of it
 |  ├── app.resources.js
 |  ├── app.services.js
 |  ├── app.utils.js`
+├── dist
+|  ├── css
+|  ├── js
+|  ├── images
+|  ├── views
 ├── less|sass
 ```
 [Back to top](#table-of-contents)
