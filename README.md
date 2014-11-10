@@ -88,7 +88,7 @@ Normally, as you progress through basic and essential features, regardless of it
 |  |  ├── user.controller.js
 |  |  ├── user-picture.tpl.html
 |  |  ├── user.html
-/...
+├── ...
 ```
 
 The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services to be **specifically** used for itself or child states.
