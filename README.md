@@ -22,7 +22,7 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 ## 1. Context
 
-This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well.
+This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well. If you would like to see more about the concept behind this guide, please view [John Papa's](https://github.com/johnpapa)'s [AngularJS style guide](https://github.com/johnpapa/angularjs-styleguide).
 
 An "infrastructure" helps you solve not only a scalability problem, but also a maintainability problem. This guide was created to share a newbie's solution with his struggles from his infrastructure, rooting from impractical guides shared in the internets, and inexperience. Like said:
 
@@ -100,6 +100,11 @@ Normally, as you progress through basic and essential features, regardless of it
 ```
 
 The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services to be **specifically** used for itself or child states.
+
+### Q: What is a state? ###
+
+Used to register a state, see [ui-router](https://github.com/angular-ui/ui-router).
+
 
 ### Q: What if I started having more than 1 partial, controllers, and other things?
 
@@ -245,6 +250,8 @@ I had decided to separate directives because:
 
 ## 6. Overall
 
+[ ... ]
+
 [Back to top](#table-of-contents)
 
 ## 7. Recommendation & Tips
@@ -263,4 +270,4 @@ This style guide has been largely influenced by [John Papa](https://github.com/j
 
 ## Contribution
 
-I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests.
+I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests (if ever).
