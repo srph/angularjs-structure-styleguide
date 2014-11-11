@@ -73,26 +73,26 @@ Normally, as you progress through basic and essential features, regardless of it
 |  ├── utils
 |  ├── app.module.js
 |  ├── app.bootstrap.js
-|  ├── app.core.js
-|  ├── app.controllers.js
-|  ├── app.directives.js
-|  ├── app.resources.js
-|  ├── app.services.js
-|  ├── app.utils.js`
+|  ├── core.module.js
+|  ├── controllers.module.js
+|  ├── directives.module.js
+|  ├── resources.module.js
+|  ├── services.module.js
 ├── dist/
 |  ├── css
 |  ├── js
 |  ├── images
 |  ├── views
 ├── less|sass/
+├── vendor/
 ```
 [Back to top](#table-of-contents)
 
 ## 3. App
 
 ```
-├── app
-|  ├── user
+├── app/
+|  ├── user/
 |  |  ├── user.state.js
 |  |  ├── user.controller.js
 |  |  ├── user-picture.tpl.html
@@ -202,17 +202,15 @@ Use **camelCase**; do not separate it with a ```-```(dash).
 ├── core/
 |  ├── controllers/
 |  ├── resources/
-|  ├── utils/
-|  ├── filters/
 |  ├── services/
+|  ├── utils/
 |  ├── app.module.js
 |  ├── app.bootstrap.js
-|  ├── app.core.js
-|  ├── app.controllers.js
-|  ├── app.directives.js
-|  ├── app.resources.js
-|  ├── app.services.js
-|  ├── app.utils.js`
+|  ├── core.module.js
+|  ├── controllers.module.js
+|  ├── directives.module.js
+|  ├── resources.module.js
+|  ├── services.module.js
 ```
 
 The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
@@ -234,7 +232,7 @@ These come in handy when you frequently request an API for data. Use ```resource
 |  |  ├── awesomeProgressBar.directive.js
 |  |  ├── awesomeProgressBar.provider.js
 |  |  ├── awesomeProgressBar.module.js
-|  ├── app.components.module.js
+|  ├── components.module.js
 ```
 
 The ```components``` folder contains mostly general-solution|non-feature-specific ```directives```.
@@ -244,7 +242,7 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 I had decided to separate directives because:
 
 1. Most general-solution directives has its own separate controller and provider.
-2. Directives are way too large to be nested inside the ```app.core``` folder, and this easily goes against the LIFT principle.
+2. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
 3. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
 
 [Back to top](#table-of-contents)
