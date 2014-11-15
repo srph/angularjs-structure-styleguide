@@ -67,22 +67,24 @@ Normally, as you progress through basic and essential features, regardless of it
 |  |  ├── newsCategory.edit
 ├── components/
 ├── core/
-|  ├── controllers
-|  ├── resources
-|  ├── services
-|  ├── utils
+|  ├── controllers/
+|  ├── constants/
+|  ├── resources/
+|  ├── services/
+|  ├── utils/
 |  ├── app.module.js
 |  ├── app.bootstrap.js
 |  ├── core.module.js
+|  ├── constants.module.js
 |  ├── controllers.module.js
 |  ├── directives.module.js
 |  ├── resources.module.js
 |  ├── services.module.js
 ├── dist/
-|  ├── css
-|  ├── js
-|  ├── images
-|  ├── views
+|  ├── css/
+|  ├── js/
+|  ├── images/
+|  ├── views/
 ├── less|sass/
 ├── vendor/
 ```
@@ -200,20 +202,24 @@ Use **camelCase**; do not separate it with a ```-```(dash).
 
 ```
 ├── core/
+|  ├── constants
 |  ├── controllers/
 |  ├── resources/
 |  ├── services/
 |  ├── utils/
+|  |   ├── progress.config.js/
+|  |   ├── restangular.config.js/
 |  ├── app.module.js
 |  ├── app.bootstrap.js
 |  ├── core.module.js
+|  ├── constants.module.js
 |  ├── controllers.module.js
 |  ├── directives.module.js
 |  ├── resources.module.js
 |  ├── services.module.js
 ```
 
-The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```controllers```, ```resources```, ```utils```, and ```filters```.
+The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```constants```, ```controllers```, ```resources```, ```utils```, and ```filters```.
 
 ### Q: Why do we have the ```resources``` folder?
 These come in handy when you frequently request an API for data. Use ```resources``` to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, use services.
@@ -222,7 +228,7 @@ These come in handy when you frequently request an API for data. Use ```resource
 
 ```
 ├── components/
-|  ├──  /stickyNavThatDoesThat
+|  ├──  stickyNavThatDoesThat/
 |  |  ├── stickyNavThatDoesThat.controller.js
 |  |  ├── stickyNavThatDoesThat.directive.js
 |  |  ├── stickyNavThatDoesThat.provider.js
