@@ -56,15 +56,15 @@ Normally, as you progress through basic and essential features, regardless of it
 ```
 ├── app/
 |  ├── user
-|  |  ├── partials
-|  |  ├── directives
-|  |  ├── controllers
-|  |  ├── services
-|  |  ├── user.create
-|  |  ├── user.edit
-|  |  ├── newsCategory
-|  |  ├── newsCategory.create
-|  |  ├── newsCategory.edit
+|  |  ├── partials/
+|  |  ├── directives/
+|  |  ├── controllers/
+|  |  ├── services/
+|  ├── user.create/
+|  ├── user.edit/
+|  ├── newsCategory/
+|  ├── newsCategory.create/
+|  ├── newsCategory.edit/
 ├── components/
 ├── core/
 |  ├── controllers/
