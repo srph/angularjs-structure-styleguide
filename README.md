@@ -48,6 +48,7 @@ Normally, as you progress through basic and essential features, regardless of it
 ├── core/
 ├── dist/
 ├── less|sass/
+├── tests/
 ├── vendor/
 ```
 
@@ -86,6 +87,7 @@ Normally, as you progress through basic and essential features, regardless of it
 |  ├── images/
 |  ├── views/
 ├── less|sass/
+├── tests/
 ├── vendor/
 ```
 [Back to top](#table-of-contents)
