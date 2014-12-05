@@ -24,6 +24,8 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well. If you would like to see more about the concept behind this guide, please view [John Papa's](https://github.com/johnpapa)'s [AngularJS style guide](https://github.com/johnpapa/angularjs-styleguide).
 
+**This guide gives emphasis to components or directives**.
+
 An "infrastructure" helps you solve not only a scalability problem, but also a maintainability problem. This guide was created to share a newbie's solution with his struggles from his infrastructure, rooting from impractical guides shared in the internets, and inexperience. Like said:
 
 > Cardinally and fundamentally, reading code is harder than writing code.
@@ -121,8 +123,9 @@ If the state starts to use more than 1 partial, this is when you start grouping 
 |  |  ├── partials/
 |  |  |  ├── user-picture.tpl.html
 |  |  |  ├── user-swag.tpl.html
-|  |  ├── webcam.directive/
-|  |  ├── uploaderThing.directive/
+|  |  ├── components/
+|  |  |   ├── Webcam/
+|  |  |   ├── UploaderThing/
 |  |  ├── user.state.js
 |  |  ├── user.controller.js
 |  |  ├── user.html
@@ -230,22 +233,26 @@ These come in handy when you frequently request an API for data. Use ```resource
 
 ```
 ├── components/
-|  ├──  stickyNavThatDoesThat/
+|  ├──  StickyNavThatDoesThat/
 |  |  ├── stickyNavThatDoesThat.controller.js
 |  |  ├── stickyNavThatDoesThat.directive.js
 |  |  ├── stickyNavThatDoesThat.provider.js
 |  |  ├── stickyNavThatDoesThat.module.js
-|  ├── awesomeProgressBar/
-|  |  ├── awesomeProgressBar.controller.js
-|  |  ├── awesomeProgressBar.directive.js
-|  |  ├── awesomeProgressBar.provider.js
-|  |  ├── awesomeProgressBar.module.js
+|  ├── AwesomeProgressBar/
+|  |  ├── AwesomeProgressBar.controller.js
+|  |  ├── AwesomeProgressBar.directive.js
+|  |  ├── AwesomeProgressBar.provider.js
+|  |  ├── AwesomeProgressBar.module.js
 |  ├── components.module.js
 ```
 
 The ```components``` folder contains mostly general-solution|non-feature-specific ```directives```.
 
 ### Q: Why are the directives separated from other angular modules?
+
+** Write the file names of your components in CamelCase**.
+
+Why? This guide gives emphasis to components which each of or module contains.
 
 I had decided to separate directives because:
 
