@@ -36,10 +36,6 @@ An "infrastructure" helps you solve not only a scalability problem, but also a m
 
 Basically, this is how our app will be.
 
-** Tests should be put close to our components as possible. **
-
-*Why?* This avoids the replication of our structure for our tests, and also makes them easier to view.
-
 ### First-level simplification
 
 ```
@@ -59,6 +55,7 @@ Basically, this is how our app will be.
 |  |  ├── partials/
 |  |  ├── directives/
 |  |  |  ├── ThatDirective/
+|  |  |  |  ├── i18n/
 |  |  |  |  ├── tests/
 |  ├── user.create/
 |  ├── user.edit/
@@ -230,11 +227,15 @@ These come in handy when you frequently request an API for data. Use ```resource
 ```
 ├── components/
 |  ├──  StickyNavThatDoesThat/
-|  |  ├── stickyNavThatDoesThat.controller.js
-|  |  ├── stickyNavThatDoesThat.directive.js
-|  |  ├── stickyNavThatDoesThat.provider.js
-|  |  ├── stickyNavThatDoesThat.module.js
+|  |  ├── i18n/
+|  |  ├── tests/
+|  |  ├── StickyNavThatDoesThat.controller.js
+|  |  ├── StickyNavThatDoesThat.directive.js
+|  |  ├── StickyNavThatDoesThat.provider.js
+|  |  ├── StickyNavThatDoesThat.module.js
 |  ├── AwesomeProgressBar/
+|  |  ├── i18n/
+|  |  ├── tests/
 |  |  ├── AwesomeProgressBar.controller.js
 |  |  ├── AwesomeProgressBar.directive.js
 |  |  ├── AwesomeProgressBar.provider.js
@@ -255,6 +256,10 @@ I had decided to separate directives because:
 1. Most general-solution directives has its own separate controller and provider.
 2. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
 3. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
+
+** Tests and i18n should be put close to our components as possible. **
+
+*Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
 
 [Back to top](#table-of-contents)
 
