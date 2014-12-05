@@ -83,7 +83,6 @@ Basically, this is how our app will be.
 |  ├── images/
 |  ├── views/
 ├── less|sass/
-├── tests/
 ├── vendor/
 ```
 [Back to top](#table-of-contents)
@@ -111,7 +110,7 @@ Used to register a state, see [ui-router](https://github.com/angular-ui/ui-route
 If the state starts to use more than 1 partial, this is when you start grouping them to a folder. If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
 
 ```
-├── core/
+├── app/
 |  ├── user/
 |  |  ├── partials/
 |  |  |  ├── user-picture.tpl.html
