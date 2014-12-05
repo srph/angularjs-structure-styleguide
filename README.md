@@ -30,17 +30,15 @@ An "infrastructure" helps you solve not only a scalability problem, but also a m
 
 > Cardinally and fundamentally, reading code is harder than writing code.
 
-### Developing the app, ulteriorly, becomes more fun.
-
-No matter how "good" an app and code is documented, it has to be instinctively readable and exciting. Your structure should immediately reflect the purpose of the app and how the gears turn.
-
-### Adding features become awesome tasks.
-
-Normally, as you progress through basic and essential features, regardless of its scale, it becomes bothering and annoying. An app makes its developers feel uneasy--that it is bloated and heavy; and it confuses developers every now and then. This becomes a very big problem, especially when an app is under a large team. **Fundamentally**, even if you are a *full-stack developer*, your code should be *workable*.
-
 [Back to top](#table-of-contents)
 
 ## 2. App Overview
+
+Basically, this is how our app will be.
+
+** Tests should be put close to our components as possible. **
+
+*Why?* This avoids the replication of our structure for our tests, and also makes them easier to view.
 
 ### First-level simplification
 
@@ -50,7 +48,6 @@ Normally, as you progress through basic and essential features, regardless of it
 ├── core/
 ├── dist/
 ├── less|sass/
-├── tests/
 ├── vendor/
 ```
 
@@ -61,8 +58,8 @@ Normally, as you progress through basic and essential features, regardless of it
 |  ├── user
 |  |  ├── partials/
 |  |  ├── directives/
-|  |  ├── controllers/
-|  |  ├── services/
+|  |  |  ├── ThatDirective/
+|  |  |  |  ├── tests/
 |  ├── user.create/
 |  ├── user.edit/
 |  ├── newsCategory/
