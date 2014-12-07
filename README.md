@@ -148,7 +148,7 @@ This is how we structure our directory. Nested states can be easily found and un
 |  ├── news-category.edit/
 ```
 
-Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state.
+**Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state.**
 
 To elaborate, here's an example: an app consists of a news CRUD [url: ```/news/*```] and a news category CRUD [url: ```/news/categories/*```]. We expect it to have these states:
 
@@ -217,7 +217,7 @@ Use **camelCase**; do not separate it with a ```-```(dash).
 The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```constants```, ```controllers```, ```resources```, ```utils```, and ```filters```.
 
 ### Q: Why do we have the ```resources``` folder?
-These come in handy when you frequently request an API for data. Use ```resources``` to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, use services.
+These come in handy when you frequently request an API for data. Fill in ```resources``` with your $http-service-wrappers to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, put in the ```service``` as a normal service.
 
 ## 5. Components
 
@@ -249,15 +249,15 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 
 ### Q: Why are the directives separated from other angular modules?
 
-** Write the file names of your directives (components) in StudlyCase**.
-
-Why? This guide gives emphasis to components.
-
 I had decided to separate directives because:
 
 1. Most general-solution directives has its own separate controller and provider.
 2. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
 3. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
+
+** Write the file names of your directives (components) in StudlyCase**.
+
+Why? This guide gives emphasis to components.
 
 ** Tests and i18n should be put close to our components as possible. **
 
