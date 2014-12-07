@@ -24,7 +24,7 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well. If you would like to see more about the concept behind this guide, please view [John Papa's](https://github.com/johnpapa)'s [AngularJS style guide](https://github.com/johnpapa/angularjs-styleguide).
 
-**This guide gives emphasis to components or directives**.
+**This guide gives emphasis to components or directives** inspired by ReactJS.
 
 An "infrastructure" helps you solve not only a scalability problem, but also a maintainability problem. This guide was created to share a newbie's solution with his struggles from his infrastructure, rooting from impractical guides shared in the internets, and inexperience. Like said:
 
@@ -92,9 +92,11 @@ Basically, this is how our app will be.
 ```
 ├── app/
 |  ├── user/
+|  |  ├── i18n/
+|  |  ├── tests/
+|  |  ├── partials/
 |  |  ├── user.state.js
 |  |  ├── user.controller.js
-|  |  ├── user-picture.tpl.html
 |  |  ├── user.html
 ├── ...
 ```
@@ -226,7 +228,12 @@ These come in handy when you frequently request an API for data. Use ```resource
 ```
 ├── components/
 |  ├──  StickyNavThatDoesThat/
+|  |  ├── tests/
+|  |  |  ├── directive.spec.js/
 |  |  ├── i18n/
+|  |  |  ├── en.js
+|  |  |  ├── jp.js
+|  |  |  ├── kr.js
 |  |  ├── tests/
 |  |  ├── StickyNavThatDoesThat.controller.js
 |  |  ├── StickyNavThatDoesThat.directive.js
@@ -246,9 +253,9 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 
 ### Q: Why are the directives separated from other angular modules?
 
-** Write the file names of your components in CamelCase**.
+** Write the file names of your directives (components) in StudlyCase**.
 
-Why? This guide gives emphasis to components which each of or module contains.
+Why? This guide gives emphasis to components.
 
 I had decided to separate directives because:
 
@@ -259,6 +266,17 @@ I had decided to separate directives because:
 ** Tests and i18n should be put close to our components as possible. **
 
 *Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
+
+** The filename of each i18n should signify only the language it is supposed to handle **
+
+**If a component only has one i18n file, simply put it at the same directory it will be used with**.
+```
+|  ├── user
+|  |  ├── en.js
+|  |  ├── user.controller.js
+|  |  ├── user.state.js
+|  |  ├── ...
+```
 
 [Back to top](#table-of-contents)
 
@@ -272,9 +290,9 @@ I had decided to separate directives because:
 
 ### File / directory naming convention
 
-If a state or a directive consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.
+**If a state consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.**.
 
-Do not use ```-```(dash) to signify that a name consists of two words. Use it to signify a nest or hierarchy.
+**Do not use ```-```(dash) to signify that a name consists of two words. Use it to signify a nest or hierarchy.**
 
 [Back to top](#table-of-contents)
 
