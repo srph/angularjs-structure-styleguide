@@ -26,10 +26,6 @@ This was created to offer a *more* in-depth guide for newcomers to AngularJS and
 
 **This guide gives emphasis to components or directives** inspired by ReactJS.
 
-An "infrastructure" helps you solve not only a scalability problem, but also a maintainability problem. This guide was created to share a newbie's solution with his struggles from his infrastructure, rooting from impractical guides shared in the internets, and inexperience. Like said:
-
-> Cardinally and fundamentally, reading code is harder than writing code.
-
 [Back to top](#table-of-contents)
 
 ## 2. App Overview
