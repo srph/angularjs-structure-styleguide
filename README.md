@@ -125,7 +125,7 @@ Used to register a state, see [ui-router](https://github.com/angular-ui/ui-route
 
 ### Q: What if I have nested states?
 
-**As much as possible, try to avoid nested directories of states. For example, we have this state hierarchy:**
+**As much as possible, try to avoid nested *directories* of states. For example, we have this state hierarchy:**
 
 ```
 - main
@@ -183,10 +183,11 @@ This is how we create our directory:
 |  ├── news-category.edit/
 ```
 
-Another explanation: if we have a users CRUD and a users.group CRUD (a *CRUD* of ```group``` specifically for a given ```user```, e.g. creating a ```group``` under a ```user``` or editing a ```group``` under a ```user``` or so), all CRUD under the users are named as follows: ```users.index```, ```users.create```, ```users.show```, and ```users.edit```; all ```group``` *CRUD* under the ```users``` module are named as follows: ```user-group.index```, ```user-group.create```, ...
-
 ### Q: What if my state is composed of two words?
-**Use ``camelCase``; do not separate it with a ```-```(dash).**
+
+**Use ``camelCase``; do not separate it with a ```-```(dash).** Do not use ```-```(dash) to signify that a name consists of two words. Use it to signify a nest or hierarchy. If a state consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.**.
+
+Why? This allows us to properly signify and understand what a dot (```.```) and dash (```-```) does.
 
 ```
 ├── user/
@@ -198,8 +199,6 @@ Another explanation: if we have a users CRUD and a users.group CRUD (a *CRUD* of
 ├── user-thatModule.create/
 ```
 [Back to top](#table-of-contents)
-
-Why? This allows us to properly signify what a dot (```.```) and dash (```-```) does.
 
 ## 4. Core
 
@@ -290,12 +289,6 @@ Why? This guide gives emphasis to components.
 ## 6. Overall
 
 Do not forget that this is a personal, opinionated structure styleguide. Although I have been using an almost-similar structure in production, your structure will vary on your project (team size, etc) from time-to-time. Make sure to keep it simple.
-
-### File / directory naming convention
-
-**If a state consists of two separate words (e.g, soulja boy, sticky nav), use ```camelCase```. For example, ```souljaBoy```, ```stickyNav```.**.
-
-**Do not use ```-```(dash) to signify that a name consists of two words. Use it to signify a nest or hierarchy.**
 
 [Back to top](#table-of-contents)
 
