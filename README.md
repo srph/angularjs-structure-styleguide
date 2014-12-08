@@ -84,6 +84,8 @@ Basically, this is how our app will be.
 
 ## 3. App
 
+The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services to be **specifically** used for itself or child states.
+
 ```
 ├── app/
 |  ├── user/
@@ -98,15 +100,13 @@ Basically, this is how our app will be.
 ├── ...
 ```
 
-The ```app``` folder contains all the app's states. And each state may contain the controllers, directives, services to be **specifically** used for itself or child states.
-
 ### Q: What is a state? ###
 
 Used to register a state, see [ui-router](https://github.com/angular-ui/ui-router). This also has been asked before, see [this issue](https://github.com/srph/angularjs-structure-styleguide/issues?q=is%3Aissue+is%3Aclosed).
 
 ### Q: What if I started having more than 1 partial, controllers, and other things?
 
-If the state starts to use more than 1 partial, this is when you start grouping them to a folder. If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
+**If the state starts to use more than 1 partial, this is when you start grouping them to a folder.** If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
 
 ```
 ├── app/
@@ -139,7 +139,7 @@ If the state starts to use more than 1 partial, this is when you start grouping 
       - profile.delete
 ```
 
-This is how we structure our directory. Nested states can be easily found and understood while adhering to the **LIFT** principle.
+This is how we structure our directory. Why? This way, nested states can be easily found and understood while adhering to the **LIFT** principle.
 
 ```
 ├── app/
@@ -201,6 +201,8 @@ Why? This allows us to properly signify what a dot (```.```) and dash (```-```) 
 
 ## 4. Core
 
+The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```constants```, ```controllers```, ```resources```, ```utils```, and ```filters```.
+
 ```
 ├── core/
 |  ├── constants
@@ -220,12 +222,12 @@ Why? This allows us to properly signify what a dot (```.```) and dash (```-```) 
 |  ├── services.module.js
 ```
 
-The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```constants```, ```controllers```, ```resources```, ```utils```, and ```filters```.
-
 ### Q: Why do we have the ```resources``` folder?
 These come in handy when you frequently request an API for data. Fill in ```resources``` with your $http-service-wrappers to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, put in the ```service``` as a normal service.
 
 ## 5. Components
+
+The ```components``` folder contains mostly general-solution|non-feature-specific ```directives```.
 
 ```
 ├── components/
@@ -250,8 +252,6 @@ These come in handy when you frequently request an API for data. Fill in ```reso
 |  |  ├── AwesomeProgressBar.module.js
 |  ├── components.module.js
 ```
-
-The ```components``` folder contains mostly general-solution|non-feature-specific ```directives```.
 
 ### Q: Why are the directives separated from other angular modules?
 
