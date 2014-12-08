@@ -151,7 +151,9 @@ This is how we structure our directory. Why? This way, nested states can be easi
 
 ### Q: How do I indicate a url nest or a state nest?
 
-**Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state**. For instance, we have ```users/{id}``` and ```users/{id}/groups``` which is equivalent to ```users.show``` and ```users-group```.
+**Use ```.```(dot) for states of the same module**. For instance, if we have the ```users``` *CRUD* module, then we'd have ```users.create```, ```users.edit```, **...**).
+
+**Otherwise, use ```-``` to signify hierarchy**. For instance, we have a ```group``` module which is under the ```users``` module, then we'd have: (```users```, ```users.create```, **...**, ```users-groups```, ```users-groups.create```, **..**).
 
 To elaborate, here's an example: an app consists of a news CRUD [url: ```/news/*```] and a news category CRUD [url: ```/news/categories/*```]. We expect it to have these states:
 
@@ -201,7 +203,7 @@ Why? This allows us to properly signify what a dot (```.```) and dash (```-```) 
 
 ## 4. Core
 
-The ```core``` folder contains all app modules, app bootstrapper, and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```constants```, ```controllers```, ```resources```, ```utils```, and ```filters```.
+The ```core``` folder contains all ```modules```, app ```bootstrapper``` (see [```angular.bootstrap```](https://docs.angularjs.org/api/ng/function/angular.bootstrap)), and all *common* or *shared* files (in short, non-specific components) used in the app such as ```services```, ```constants```, ```controllers```, ```resources```, ```utils```, and ```filters```.
 
 ```
 ├── core/
@@ -261,21 +263,19 @@ I had decided to separate directives because:
 2. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
 3. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
 
-** Write the file names of your directives (components) in StudlyCase**.
+**Write the file names of your directives (components) in StudlyCase**.
 
 Why? This guide gives emphasis to components.
 
 ### Q: Where do I put my tests or i18n?
 
-** Tests and i18n should be put close to our components as possible. **
+**Tests and i18n should be put close to our components as possible. **
 
 *Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
 
 ### How do I handle each language for the i18n?
 
-** The filename of each i18n should signify only the language it is supposed to handle **
-
-**If a component only has one i18n file, simply put it at the same directory it will be used with**.
+**The filename of each i18n should signify only the language it is supposed to handle**. If a component only has one i18n file, simply put it at the same directory it will be used with.
 
 ```
 |  ├── user
@@ -288,6 +288,8 @@ Why? This guide gives emphasis to components.
 [Back to top](#table-of-contents)
 
 ## 6. Overall
+
+Do not forget that this is a personal, opinionated structure styleguide. Although I have been using an almost-similar structure in production, your structure will vary on your project (team size, etc) from time-to-time. Make sure to keep it simple.
 
 ### File / directory naming convention
 
