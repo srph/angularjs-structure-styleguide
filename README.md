@@ -18,7 +18,6 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 4. [Core](#4-core)
 5. [Components](#5-components)
 6. [Overall](#overall)
-7. [Recommendation & Tips](#7-recommendation--tips)
 
 ## 1. Context
 
@@ -89,6 +88,8 @@ Basically, this is how our app will be.
 ├── app/
 |  ├── user/
 |  |  ├── i18n/
+|  |  |  ├── en.js
+|  |  |  ├── kr.js
 |  |  ├── tests/
 |  |  ├── partials/
 |  |  ├── user.state.js
@@ -122,9 +123,9 @@ If the state starts to use more than 1 partial, this is when you start grouping 
 ├── ...
 ```
 
-**Q: What if I have nested states?**
+### Q: What if I have nested states?
 
-As much as possible, try to avoid nested directories of states. For example, we have this state hierarchy:
+**As much as possible, try to avoid nested directories of states. For example, we have this state hierarchy:**
 
 ```
 - main
@@ -148,7 +149,9 @@ This is how we structure our directory. Nested states can be easily found and un
 |  ├── news-category.edit/
 ```
 
-**Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state.**
+### Q: How do I indicate a url nest or a state nest?
+
+**Use ```.```(dot) for (possibly nested)states of the same module. Otherwise, use ```-```; helpful for states with a url that's simply nested under a different state**. For instance, we have ```users/{id}``` and ```users/{id}/groups``` which is equivalent to ```users.show``` and ```users-group```.
 
 To elaborate, here's an example: an app consists of a news CRUD [url: ```/news/*```] and a news category CRUD [url: ```/news/categories/*```]. We expect it to have these states:
 
@@ -178,9 +181,10 @@ This is how we create our directory:
 |  ├── news-category.edit/
 ```
 
-**Q: What if my state is composed of two words?**
+Another explanation: if we have a users CRUD and a users.group CRUD (a *CRUD* of ```group``` specifically for a given ```user```, e.g. creating a ```group``` under a ```user``` or editing a ```group``` under a ```user``` or so), all CRUD under the users are named as follows: ```users.index```, ```users.create```, ```users.show```, and ```users.edit```; all ```group``` *CRUD* under the ```users``` module are named as follows: ```user-group.index```, ```user-group.create```, ...
 
-Use **camelCase**; do not separate it with a ```-```(dash).
+### Q: What if my state is composed of two words?
+**Use ``camelCase``; do not separate it with a ```-```(dash).**
 
 ```
 ├── user/
@@ -192,6 +196,8 @@ Use **camelCase**; do not separate it with a ```-```(dash).
 ├── user-thatModule.create/
 ```
 [Back to top](#table-of-contents)
+
+Why? This allows us to properly signify what a dot (```.```) and dash (```-```) does.
 
 ## 4. Core
 
@@ -259,13 +265,18 @@ I had decided to separate directives because:
 
 Why? This guide gives emphasis to components.
 
+### Q: Where do I put my tests or i18n?
+
 ** Tests and i18n should be put close to our components as possible. **
 
 *Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
 
+### How do I handle each language for the i18n?
+
 ** The filename of each i18n should signify only the language it is supposed to handle **
 
 **If a component only has one i18n file, simply put it at the same directory it will be used with**.
+
 ```
 |  ├── user
 |  |  ├── en.js
@@ -277,12 +288,6 @@ Why? This guide gives emphasis to components.
 [Back to top](#table-of-contents)
 
 ## 6. Overall
-
-[ ... ]
-
-[Back to top](#table-of-contents)
-
-## 7. Recommendation & Tips
 
 ### File / directory naming convention
 
