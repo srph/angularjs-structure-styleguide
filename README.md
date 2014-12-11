@@ -21,7 +21,7 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 ## 1. Context
 
-This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well. If you would like to see more about the concept behind this guide, please view [John Papa's](https://github.com/johnpapa)'s [AngularJS style guide](https://github.com/johnpapa/angularjs-styleguide).
+This was created to offer a *more* in-depth guide for AngularJS developers that want their apps to scale, maintainable, and whatever
 
 **This guide gives emphasis to components or directives** inspired by ReactJS and Flux. In reality, it's insane to let a single do everything. Some more insane people insist on making 2 controllers for one single state, and I think that's more insane.
 
@@ -35,7 +35,7 @@ It's more sane to think of it this way:
 
 Let ```controller``` just handle the main data (from whatever source, ajax or whatever), then since the ```view``` get data from the controller and *instantiate* or create directives through the markup, we pass on the data from the controller to the directives.
 
-This makes allow us to predict what the fuck is going on with the app. Personally, this is pretty shit, hard to predict, and hard to understand:
+This makes allow us to predict the app. Personally, this is pretty shit, hard to predict, and hard to understand:
 
 ```js
 'use strict';
@@ -56,11 +56,11 @@ function YoloController($scope) {
   
   function upload() { /** */ }
   function doThis() { /** */ }
-  function whatrever() { /** */ }
+  function whatever() { /** */ }
 }
 ```
 
-Compared to just letting the ```controller``` controller the data, and then pass it to the directives through the viwes.
+Compared to just letting the ```controller``` controll the data, and then pass the data it to the ```directive```s through the ```view```. This gives you much more controller for certain sub feats on a certain feat (like an upload thing on the avatar, and so on).
 
 [Back to top](#table-of-contents)
 
@@ -144,17 +144,17 @@ Used to register a state, see [ui-router](https://github.com/angular-ui/ui-route
 
 ### Q: What if I started having more than 1 partial, controllers, and other things?
 
-**Stop using multiple controllers, partials, services, and other things.** It is more **recommended** to use directives for the sake of modularity and maintainability. It is only okay to use partials for chunk of non-functioning mark-up.
+**Stop using multiple controllers, partials, services**. It is more **recommended** to use directives for the sake of modularity and maintainability. It is only okay to use partials for chunk of non-functioning mark-up.
 
 ```
 ├── app/
 |  ├── user-profile/
 |  |  ├── directives/
 |  |  |  ├── Avatar/
-|  |  |  |  ├── Uploader/
+|  |  |  |  ├── Uploader.js
 |  |  |  |  ├── Webcam/
-|  |  |  |  |   ├── Webcam/
-|  |  |  |  |   ├── WebcamShootButton/
+|  |  |  |  |   ├── Webcam.js
+|  |  |  |  |   ├── WebcamShootButton.js/
 |  |  ├── user.state.js
 |  |  ├── user.controller.js
 |  |  ├── user.html
