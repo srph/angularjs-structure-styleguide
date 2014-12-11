@@ -13,7 +13,7 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 ## Table of Contents
 
 1. [Context](#1-context)
-2. [App Overview](#2-app-overview)
+2. [Overview](#2-overview)
 3. [App](#3-app)
 4. [Core](#4-core)
 5. [Components](#5-components)
@@ -23,11 +23,48 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 This was created to offer a *more* in-depth guide for newcomers to AngularJS and programming itself as well. If you would like to see more about the concept behind this guide, please view [John Papa's](https://github.com/johnpapa)'s [AngularJS style guide](https://github.com/johnpapa/angularjs-styleguide).
 
-**This guide gives emphasis to components or directives** inspired by ReactJS.
+**This guide gives emphasis to components or directives** inspired by ReactJS and Flux. In reality, it's insane to let a single do everything. Some more insane people insist on making 2 controllers for one single state, and I think that's more insane.
+
+It's more sane to think of it this way:
+
+```
+----------------        ----------      ----------------
+|  Controller  |   ->   |  View  |  ->  |  Directives  |
+----------------        ----------      ----------------
+```
+
+Let ```controller``` just handle the main data (from whatever source, ajax or whatever), then since the ```view``` get data from the controller and *instantiate* or create directives through the markup, we pass on the data from the controller to the directives.
+
+This makes allow us to predict what the fuck is going on with the app. Personally, this is pretty shit, hard to predict, and hard to understand:
+
+```js
+'use strict';
+angular
+  .module('app')
+  .controller('YoloController, YoloController');
+  
+function YoloController($scope) {
+  $scope.isLoading = false;
+  $scope.isYolo = false;
+  $scope.isWhatever = false;
+  $scope.upload = upload;
+  $scope.doThis = doThis;
+  $scope.whatever = whatever;
+  
+  // ajax thing here
+  // .then assign response data to $scope.data
+  
+  function upload() { /** */ }
+  function doThis() { /** */ }
+  function whatrever() { /** */ }
+}
+```
+
+Compared to just letting the ```controller``` controller the data, and then pass it to the directives through the viwes.
 
 [Back to top](#table-of-contents)
 
-## 2. App Overview
+## 2. Overview
 
 Basically, this is how our app will be.
 
@@ -90,6 +127,7 @@ The ```app``` folder contains all the app's states. And each state may contain t
 ├── app/
 |  ├── user/
 |  |  ├── i18n/
+|  |  ├── directives/
 |  |  |  ├── en.js
 |  |  |  ├── kr.js
 |  |  ├── tests/
@@ -106,17 +144,17 @@ Used to register a state, see [ui-router](https://github.com/angular-ui/ui-route
 
 ### Q: What if I started having more than 1 partial, controllers, and other things?
 
-**If the state starts to use more than 1 partial, this is when you start grouping them to a folder.** If the state starts to have more than 2 controllers, you're doing it wrong. Take advantage of the directives, the ```controllerAs``` syntax, and isolated scope. For example:
+**Stop using multiple controllers, partials, services, and other things.** It is more **recommended** to use directives for the sake of modularity and maintainability. It is only okay to use partials for chunk of non-functioning mark-up.
 
 ```
 ├── app/
-|  ├── user/
-|  |  ├── partials/
-|  |  |  ├── user-picture.tpl.html
-|  |  |  ├── user-swag.tpl.html
-|  |  ├── components/
-|  |  |   ├── Webcam/
-|  |  |   ├── UploaderThing/
+|  ├── user-profile/
+|  |  ├── directives/
+|  |  |  ├── Avatar/
+|  |  |  |  ├── Uploader/
+|  |  |  |  ├── Webcam/
+|  |  |  |  |   ├── Webcam/
+|  |  |  |  |   ├── WebcamShootButton/
 |  |  ├── user.state.js
 |  |  ├── user.controller.js
 |  |  ├── user.html
@@ -272,7 +310,7 @@ Why? This guide gives emphasis to components.
 
 *Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
 
-### How do I handle each language for the i18n?
+### Q: How do I handle each language for the i18n?
 
 **The filename of each i18n should signify only the language it is supposed to handle**. If a component only has one i18n file, simply put it at the same directory it will be used with.
 
@@ -289,6 +327,8 @@ Why? This guide gives emphasis to components.
 ## 6. Overall
 
 Do not forget that this is a personal, opinionated structure styleguide. Although I have been using an almost-similar structure in production, your structure will vary on your project (team size, etc) from time-to-time. Make sure to keep it simple.
+
+It is *always* better to create feature-based instead of role-based structure. Because role-based structure will always be harder to write, read, and maintain.
 
 [Back to top](#table-of-contents)
 
