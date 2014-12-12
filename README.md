@@ -62,6 +62,8 @@ function YoloController($scope) {
 
 Compared to just letting the ```controller``` controll the data, and then pass the data it to the ```directive```s through the ```view```. This gives you much more controller for certain sub feats on a certain feat (like an upload thing on the avatar, and so on).
 
+**If you cannot grasp the idea, do not use the styleguide.**
+
 [Back to top](#table-of-contents)
 
 ## 2. Overview
@@ -96,16 +98,15 @@ Basically, this is how our app will be.
 |  ├── newsCategory.edit/
 ├── components/
 ├── core/
-|  ├── controllers/
 |  ├── constants/
+|  ├── filters/
 |  ├── resources/
 |  ├── services/
 |  ├── utils/
-|  ├── app.module.js
-|  ├── app.bootstrap.js
-|  ├── core.module.js
+|  ├── app.js
+|  ├── bootstrap.js
 |  ├── constants.module.js
-|  ├── controllers.module.js
+|  ├── filters.module.js
 |  ├── directives.module.js
 |  ├── resources.module.js
 |  ├── services.module.js
@@ -244,24 +245,29 @@ The ```core``` folder contains all ```modules```, app ```bootstrapper``` (see [`
 
 ```
 ├── core/
-|  ├── constants
-|  ├── controllers/
+|  ├── constants/
+|  ├── filters/
 |  ├── resources/
 |  ├── services/
 |  ├── utils/
 |  |   ├── progress.config.js/
 |  |   ├── restangular.config.js/
-|  ├── app.module.js
-|  ├── app.bootstrap.js
-|  ├── core.module.js
+|  ├── app.js
+|  ├── bootstrap.js
 |  ├── constants.module.js
-|  ├── controllers.module.js
 |  ├── directives.module.js
+|  ├── filters.module.js
 |  ├── resources.module.js
 |  ├── services.module.js
 ```
 
-### Q: Why do we have the ```resources``` folder?
+### Q: What does each of the js file in the *root* of the ```core``` folder do?
+
+- ```app.js``` is our application module, the highest-level module, which contains all other modules. For instance, ```angular.module('app', ['app.resources', 'app.directives', 'app.services', 'app.constants']); ```.
+- ```bootstrap.js``` does nothing but bootstrap the app ```angular.bootstrap(document, ['app'])```.
+- ```*.module.js``` is the module to be respectively used for each (all *constants* in the ```constants/``` directory should use ```constant.module.js```).
+
+### Q: What are ```resources```?
 These come in handy when you frequently request an API for data. Fill in ```resources``` with your $http-service-wrappers to wrap ```$http``` or ```Restangular``` methods, or store data from a server response. Otherwise, put in the ```service``` as a normal service.
 
 ## 5. Components
@@ -272,23 +278,21 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 ├── components/
 |  ├──  StickyNavThatDoesThat/
 |  |  ├── tests/
-|  |  |  ├── directive.spec.js/
+|  |  ├── StickyNavThatDoesThat.spec.js
+|  |  ├── Hamburger.spec.js
+|  |  ├── Search.spec.js
 |  |  ├── i18n/
 |  |  |  ├── en.js
 |  |  |  ├── jp.js
 |  |  |  ├── kr.js
 |  |  ├── tests/
-|  |  ├── StickyNavThatDoesThat.controller.js
-|  |  ├── StickyNavThatDoesThat.directive.js
-|  |  ├── StickyNavThatDoesThat.provider.js
-|  |  ├── StickyNavThatDoesThat.module.js
+|  |  ├── StickyNavThatDoesThat.js
+|  |  ├── Hamburger.js
+|  |  ├── Search.js
 |  ├── AwesomeProgressBar/
 |  |  ├── i18n/
 |  |  ├── tests/
-|  |  ├── AwesomeProgressBar.controller.js
-|  |  ├── AwesomeProgressBar.directive.js
-|  |  ├── AwesomeProgressBar.provider.js
-|  |  ├── AwesomeProgressBar.module.js
+|  |  ├── AwesomeProgressBar.js
 |  ├── components.module.js
 ```
 
@@ -296,9 +300,8 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 
 I had decided to separate directives because:
 
-1. Most general-solution directives has its own separate controller and provider.
-2. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
-3. If you are familiar of ReactJS, directives are the **Components** of ReactJS (obviously).
+1. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
+2. They need emphasis and will contain mostly a large part of your app
 
 **Write the file names of your directives (components) in StudlyCase**.
 
