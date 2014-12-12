@@ -33,9 +33,11 @@ It's more sane to think of it this way:
 ----------------        ----------      ----------------
 ```
 
-Let ```controller``` just handle the main data (from whatever source, ajax or whatever), then since the ```view``` get data from the controller and *instantiate* or create directives through the markup, we pass on the data from the controller to the directives.
+Let ```controller``` just handle the main data (from whatever source, ajax or whatever), then since the ```view``` get data from the controller and *instantiate* or create ```directive```s through the markup, we pass on the data from the controller to the directives through the ```view```.
 
-This makes allow us to predict the app. Personally, this is pretty shit, hard to predict, and hard to understand:
+This makes allow us to predict the app.
+
+Personally, this is pretty shit, hard to predict, and hard to understand:
 
 ```js
 'use strict';
@@ -60,9 +62,7 @@ function YoloController($scope) {
 }
 ```
 
-Compared to just letting the ```controller``` controll the data, and then pass the data it to the ```directive```s through the ```view```. This gives you much more controller for certain sub feats on a certain feat (like an upload thing on the avatar, and so on).
-
-**If you cannot grasp the idea, do not use the styleguide.**
+Compared to just letting the ```controller``` control the data, and then pass the data it to the ```directive```s through the ```view```. This gives you much more control for certain sub feats on a certain feat (like an upload thing on the avatar, and so on, proper response when the upload succeeds, or the loading thing for that thing).
 
 [Back to top](#table-of-contents)
 
@@ -332,6 +332,8 @@ Why? This guide gives emphasis to components.
 Do not forget that this is a personal, opinionated structure styleguide. Although I have been using an almost-similar structure in production, your structure will vary on your project (team size, etc) from time-to-time. Make sure to keep it simple.
 
 It is *always* better to create feature-based instead of role-based structure. Because role-based structure will always be harder to write, read, and maintain.
+
+**If you cannot grasp the idea, do not use the style guide**. It probably won't make sense.
 
 [Back to top](#table-of-contents)
 
