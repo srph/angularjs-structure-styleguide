@@ -87,7 +87,7 @@ Basically, this is how our app will be.
 ├── app/
 |  ├── user
 |  |  ├── partials/
-|  |  ├── directives/
+|  |  ├── components/
 |  |  |  ├── ThatDirective/
 |  |  |  |  ├── i18n/
 |  |  |  |  ├── tests/
@@ -107,7 +107,7 @@ Basically, this is how our app will be.
 |  ├── bootstrap.js
 |  ├── constants.module.js
 |  ├── filters.module.js
-|  ├── directives.module.js
+|  ├── components.module.js
 |  ├── resources.module.js
 |  ├── services.module.js
 ├── dist/
@@ -128,7 +128,7 @@ The ```app``` folder contains all the app's states. And each state may contain t
 ├── app/
 |  ├── user/
 |  |  ├── i18n/
-|  |  ├── directives/
+|  |  ├── components/
 |  |  |  ├── en.js
 |  |  |  ├── kr.js
 |  |  ├── tests/
@@ -150,7 +150,7 @@ Used to register a state, see [ui-router](https://github.com/angular-ui/ui-route
 ```
 ├── app/
 |  ├── user-profile/
-|  |  ├── directives/
+|  |  ├── components/
 |  |  |  ├── Avatar/
 |  |  |  |  ├── Uploader.js
 |  |  |  |  ├── Webcam/
@@ -255,7 +255,7 @@ The ```core``` folder contains all ```modules```, app ```bootstrapper``` (see [`
 |  ├── app.js
 |  ├── bootstrap.js
 |  ├── constants.module.js
-|  ├── directives.module.js
+|  ├── components.module.js
 |  ├── filters.module.js
 |  ├── resources.module.js
 |  ├── services.module.js
@@ -295,6 +295,10 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 |  |  ├── AwesomeProgressBar.js
 |  ├── components.module.js
 ```
+
+### Q: Why is this named as ```components``` not ```directives```?
+
+It took me a long while to decide whether how it should be named. After some time, I preferred to use ```components``` *because* our ```directives``` are actually being used as components. If only the directive API wasn't that bad, everybody could have been doing this because it makes everything easier to predict, to test, and manageable with proper separation of concerns.
 
 ### Q: Why are the directives separated from other angular modules?
 
