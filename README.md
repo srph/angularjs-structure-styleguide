@@ -348,3 +348,5 @@ This style guide has been largely influenced by [John Papa](https://github.com/j
 ## Contribution
 
 I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests (if ever).
+
+If you have any questions, issues, or whatever, feel free to send me a tweet on [twitter](https://twitter.com/srph), or just submit an issue. It's never bothering me :)
