@@ -23,7 +23,7 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 This was created to offer a *more* in-depth guide for AngularJS developers that want their apps to scale, maintainable, and whatever
 
-**This guide gives emphasis to components or directives** inspired by ReactJS and Flux. In reality, it's insane to let a single controller do everything. Some people insist on making 2 controllers for one single *state*, and I think that's more insane.
+**This guide gives emphasis to components or directives** inspired by [ReactJS](facebook.github.io/react/) and [Flux](facebook.github.io/flux/). In reality, it's insane to let a single controller do everything. Some people insist on making 2 controllers for one single *state*, and I think that's more insane.
 
 It's more sane to think of it this way:
 
@@ -35,9 +35,9 @@ It's more sane to think of it this way:
 
 Let ```controller``` just handle the main data (from whatever source, ajax or whatever), then since the ```view``` get data from the controller and *instantiate* or create ```directive```s through the markup, we pass on the data from the controller to the directives through the ```view```.
 
-This makes allow us to predict the app.
+**This makes allow us to predict the app.**
 
-Personally, this is pretty shit, hard to predict, and hard to understand:
+Personally, I found this to be hard to predict and understand:
 
 ```js
 'use strict';
@@ -63,6 +63,8 @@ function YoloController($scope) {
 ```
 
 Compared to just letting the ```controller``` control the data, and then pass the data it to the ```directive```s through the ```view```. This gives you much more control for certain sub feats on a certain feat (like an upload thing on the avatar, and so on, proper response when the upload succeeds, or the loading thing for that thing).
+
+*example tbd*
 
 [Back to top](#table-of-contents)
 
@@ -309,11 +311,11 @@ I had decided to separate directives because:
 
 **Write the file names of your directives (components) in StudlyCase**.
 
-Why? This guide gives emphasis to components.
+*Why? I wanted to emphasize components.* In the future, I might tweak a huge part of the guide to *StudyClase*. *camelCase* does not seem to give proper emphasis to itself, so.
 
 ### Q: Where do I put my tests or i18n?
 
-**Tests and i18n should be put close to our components as possible. **
+**Tests and i18n should be put close to our components as possible.**
 
 *Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
 
@@ -349,4 +351,4 @@ This style guide has been largely influenced by [John Papa](https://github.com/j
 
 I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests (if ever).
 
-If you have any questions, issues, or whatever, feel free to send me a tweet on [twitter](https://twitter.com/srph), or just submit an issue. It's never bothering me :)
+If you have any questions, issues, or whatever, feel free to send me a tweet on [twitter](https://twitter.com/srph), or just submit an issue.
