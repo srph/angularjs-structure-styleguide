@@ -200,6 +200,17 @@ Why? This allows us to properly signify and understand what a dot (```.```) and 
 ├── user-thatModule.index/
 ├── user-thatModule.create/
 ```
+
+### Q: Where do I put my tests or i18n?
+
+**Tests and i18n should be put close to our components or state as possible.**
+
+*Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
+
+### Q: How do I handle each language for the i18n?
+
+**The filename of each i18n should signify only the language it is supposed to handle**. If a component only has one i18n file, simply put it at the same directory it will be used with.
+
 [Back to top](#table-of-contents)
 
 ## 4. Core
@@ -273,16 +284,6 @@ I had decided to separate directives because:
 **Write the file names of your directives (components) in StudlyCase**.
 
 *Why? I wanted to emphasize components.* In the future, I might tweak a huge part of the guide to *StudyClase*. *camelCase* does not seem to give proper emphasis to itself, so.
-
-### Q: Where do I put my tests or i18n?
-
-**Tests and i18n should be put close to our components as possible.**
-
-*Why?* This avoids the replication of our structure for our tests; and, makes them easier to view.
-
-### Q: How do I handle each language for the i18n?
-
-**The filename of each i18n should signify only the language it is supposed to handle**. If a component only has one i18n file, simply put it at the same directory it will be used with.
 
 ```
 |  ├── user
