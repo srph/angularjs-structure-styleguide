@@ -25,49 +25,6 @@ This was created to offer a *more* in-depth guide for AngularJS developers that 
 
 **This guide gives emphasis to components or directives** inspired by [ReactJS](facebook.github.io/react/) and [Flux](facebook.github.io/flux/). For more information in regards to this emphasis, check this [article](https://medium.com/@srph/breaking-down-angularjs-to-smaller-components-f2ab70a104d0) I wrote on Medium.
 
-In reality, it's insane to let a single controller do everything. Some people insist on making 2 controllers for one single *state*, and I think that's more insane.
-
-It's more sane to think of it this way:
-
-```
-----------------        ----------      ----------------
-|  Controller  |   ->   |  View  |  ->  |  Directives  |
-----------------        ----------      ----------------
-```
-
-Let ```controller``` just handle the main data (from whatever source, ajax or whatever), then since the ```view``` get data from the controller and *instantiate* or create ```directive```s through the markup, we pass on the data from the controller to the directives through the ```view```.
-
-**This makes allow us to predict the app.**
-
-Personally, I found this to be hard to predict and understand:
-
-```js
-'use strict';
-angular
-  .module('app')
-  .controller('YoloController, YoloController');
-  
-function YoloController($scope) {
-  $scope.isLoading = false;
-  $scope.isYolo = false;
-  $scope.isWhatever = false;
-  $scope.upload = upload;
-  $scope.doThis = doThis;
-  $scope.whatever = whatever;
-  
-  // ajax thing here
-  // .then assign response data to $scope.data
-  
-  function upload() { /** */ }
-  function doThis() { /** */ }
-  function whatever() { /** */ }
-}
-```
-
-Compared to just letting the ```controller``` control the data, and then pass the data it to the ```directive```s through the ```view```. This gives you much more control for certain sub feats on a certain feat (like an upload thing on the avatar, and so on, proper response when the upload succeeds, or the loading thing for that thing).
-
-*example tbd*
-
 [Back to top](#table-of-contents)
 
 ## 2. Overview
