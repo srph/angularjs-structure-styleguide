@@ -301,7 +301,7 @@ Do not forget that this is a personal, opinionated structure styleguide. Althoug
 
 It is *always* better to create feature-based instead of role-based structure. Because, based on my experience, role-based structure will always be harder to write, read, and maintain.
 
-Like I said in the [Context](#context), please feel free to diverge.
+Like I said in the [Context](#1-context), please feel free to diverge.
 
 [Back to top](#table-of-contents)
 
