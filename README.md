@@ -25,6 +25,8 @@ This was created to offer a *more* in-depth guide for AngularJS developers that 
 
 **This guide gives emphasis to components or directives** inspired by [ReactJS](facebook.github.io/react/) and [Flux](facebook.github.io/flux/). For more information in regards to this emphasis, check this [article](https://medium.com/@srph/breaking-down-angularjs-to-smaller-components-f2ab70a104d0) I wrote on Medium.
 
+Please, feel free to diverge from this guide.
+
 [Back to top](#table-of-contents)
 
 ## 2. Overview
@@ -296,9 +298,9 @@ I had decided to separate directives because:
 
 Do not forget that this is a personal, opinionated structure styleguide. Although I have been using an almost-similar structure in production, your structure will vary on your project (team size, etc) from time-to-time. Make sure to keep it simple.
 
-It is *always* better to create feature-based instead of role-based structure. Because role-based structure will always be harder to write, read, and maintain.
+It is *always* better to create feature-based instead of role-based structure. Because, based on my experience, role-based structure will always be harder to write, read, and maintain.
 
-**If you cannot grasp the idea, do not use the style guide**. It probably won't make sense.
+Like I said in the [Context](#context), please feel free to diverge.
 
 [Back to top](#table-of-contents)
 
