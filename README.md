@@ -23,7 +23,9 @@ Personal, opinionated style on structuring your AngularJS, adhering to [John Pap
 
 This was created to offer a *more* in-depth guide for AngularJS developers that want their apps to scale, maintainable, and whatever
 
-**This guide gives emphasis to components or directives** inspired by [ReactJS](facebook.github.io/react/) and [Flux](facebook.github.io/flux/). In reality, it's insane to let a single controller do everything. Some people insist on making 2 controllers for one single *state*, and I think that's more insane.
+**This guide gives emphasis to components or directives** inspired by [ReactJS](facebook.github.io/react/) and [Flux](facebook.github.io/flux/). For more information in regards to this emphasis, check this [article](https://medium.com/@srph/breaking-down-angularjs-to-smaller-components-f2ab70a104d0) I wrote on Medium.
+
+In reality, it's insane to let a single controller do everything. Some people insist on making 2 controllers for one single *state*, and I think that's more insane.
 
 It's more sane to think of it this way:
 
