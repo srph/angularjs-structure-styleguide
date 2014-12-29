@@ -91,9 +91,9 @@ The ```app``` folder contains all the app's states. And each state may contain t
 ├── app/
 |  ├── user/
 |  |  ├── i18n/
-|  |  ├── components/
 |  |  |  ├── en.js
 |  |  |  ├── kr.js
+|  |  ├── components/
 |  |  ├── tests/
 |  |  ├── partials/
 |  |  ├── user.state.js
