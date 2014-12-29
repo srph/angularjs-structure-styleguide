@@ -253,8 +253,8 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 |  ├──  StickyNavThatDoesThat/
 |  |  ├── tests/
 |  |  ├── StickyNavThatDoesThat.spec.js
-|  |  ├── Hamburger.spec.js
-|  |  ├── Search.spec.js
+|  |  |  ├── Hamburger.spec.js
+|  |  |  ├── Search.spec.js
 |  |  ├── i18n/
 |  |  |  ├── en.js
 |  |  |  ├── jp.js
