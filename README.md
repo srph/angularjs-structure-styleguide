@@ -305,7 +305,15 @@ Like I said in the [Context](#1-context), please feel free to diverge.
 
 [Back to top](#table-of-contents)
 
-## Credits
+## Acknowledgement
+
+**angularjs-structure-styleguide** © 2014, Kier Borromeo (srph). Released under the [MIT](http://mit-license.org/) License.
+
+> [srph.github.io](http://srph.github.io) &nbsp;&middot;&nbsp;
+> GitHub [@srph](https://github.com/srph) &nbsp;&middot;&nbsp;
+> Twitter [@_srph](https://twitter.com/_srph)
+
+[MIT]: http://mit-license.org/
 
 This style guide has been largely influenced by [John Papa](https://github.com/johnpapa/)'s [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide#application-structure-lift-principle) (which also includes a lecture with regards to an AngularJS app structure).
 
@@ -313,4 +321,4 @@ This style guide has been largely influenced by [John Papa](https://github.com/j
 
 I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests (if ever).
 
-If you have any questions, issues, or whatever, feel free to send me a tweet on [twitter](https://twitter.com/srph), or just submit an issue.
+If you have any questions, issues, or whatever, feel free to send me a tweet on [twitter](https://twitter.com/_srph), or just submit an issue.
