@@ -104,7 +104,7 @@ The ```app``` folder contains all the app's states. And each state may contain t
 
 ### Q: What is a state? ###
 
-Used to register a state, see [ui-router](https://github.com/angular-ui/ui-router). This also has been asked before, see [this issue](https://github.com/srph/angularjs-structure-styleguide/issues?q=is%3Aissue+is%3Aclosed).
+Used to register a state, see [ui-router](https://github.com/angular-ui/ui-router). This also has been asked before, see [this issue](https://github.com/srph/angularjs-structure-styleguide/issues/1).
 
 ### Q: What if I started having more than 1 partial, controllers, and other things?
 
