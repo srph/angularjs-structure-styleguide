@@ -211,6 +211,14 @@ Why? This allows us to properly signify and understand what a dot (```.```) and 
 
 **The filename of each i18n should signify only the language it is supposed to handle**. If a component only has one i18n file, simply put it at the same directory it will be used with.
 
+```
+|  ├── user
+|  |  ├── en.js
+|  |  ├── user.controller.js
+|  |  ├── user.state.js
+|  |  ├── ...
+```
+
 [Back to top](#table-of-contents)
 
 ## 4. Core
@@ -272,26 +280,18 @@ The ```components``` folder contains mostly general-solution|non-feature-specifi
 
 ### Q: Why is this named as ```components``` not ```directives```?
 
-It took me a long while to decide whether how it should be named. After some time, I preferred to use ```components``` *because* our ```directives``` are actually being used as components. If only the directive API wasn't that bad, everybody could have been doing this because it makes everything easier to predict, to test, and manageable with proper separation of concerns.
+It took me a long while to decide whether how it should be named. After some time, I preferred to use ```components``` *because* our ```directives``` are actually being used as components. Again, your preference.
 
 ### Q: Why are the directives separated from other angular modules?
 
 I had decided to separate directives because:
 
-1. Directives are way too large to be nested inside the ```core``` folder, and this easily goes against the LIFT principle.
+1. Directives are way too large to be nested inside the ```core``` folder.
 2. They need emphasis and will contain mostly a large part of your app
 
 **Write the file names of your directives (components) in StudlyCase**.
 
-*Why? I wanted to emphasize components.* In the future, I might tweak a huge part of the guide to *StudyClase*. *camelCase* does not seem to give proper emphasis to itself, so.
-
-```
-|  ├── user
-|  |  ├── en.js
-|  |  ├── user.controller.js
-|  |  ├── user.state.js
-|  |  ├── ...
-```
+*Why? To emphasize components.* In the future, I might tweak a huge part of the guide to *StudyCase*. *camelCase* does not seem to give proper emphasis to itself, so.
 
 [Back to top](#table-of-contents)
 
