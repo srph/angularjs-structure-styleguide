@@ -10,6 +10,9 @@ Basic, personal, opinionated style on structuring your AngularJS, adhering to [J
 - ```F```lat structure as long as we can
 - ```T```ry to stay DRY (Don’t Repeat Yourself) or T-DRY
 
+## Unmaintained
+This style guide is no longer maintained.
+
 ## Table of Contents
 
 1. [Context](#1-context)
@@ -322,6 +325,3 @@ This style guide has been largely influenced by [John Papa](https://github.com/j
 I'd suggest to issue a proposal or a question first (for discussion purposes) before submitting a pull request. This avoids unrewarded / unmerged pull requests (if ever).
 
 If you have any questions, issues, or whatever, feel free to send me a tweet on [twitter](https://twitter.com/_srph), or just submit an issue.
-
-## Unmaintained
-This style guide is no longer maintained. Although, you may still find some helpful concepts.
